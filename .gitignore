@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Project specific
+received_files/
+*.log
+.claude/
+

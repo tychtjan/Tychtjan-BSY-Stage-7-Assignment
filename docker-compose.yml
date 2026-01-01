@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    container_name: mqtt_bot
+    command: ["mqtt_bot.py", "-i", "docker"]
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  controller:
+    build: .
+    container_name: mqtt_controller
+    command: ["mqtt_controller.py"]
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./received_files:/app/received_files
+    environment:
+      - PYTHONUNBUFFERED=1
